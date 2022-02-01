@@ -1,4 +1,8 @@
-function Categories(props) {
+import React from 'react';
+
+
+const Category = (props) => {
+
   return (
   <div>
     <h1>TODO: figure out how to do categories</h1>
@@ -6,4 +10,4 @@ function Categories(props) {
   );
 }
 
-export default Categories;
+export default Category;
