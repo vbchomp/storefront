@@ -27,8 +27,8 @@ let initialState = {
     { size: '8 oz', subCategory: 'beverage' },
     { size: '16 oz', subCategory: 'beverage' },
     { size: '24 oz', subCategory: 'beverage' },
-    { size: 'Reg', subCategory: 'treat' },
-    { size: 'Large', subCategory: 'treat' },
+    { size: 'Ashe', subCategory: 'treat' },
+    { size: 'Fat Ashe', subCategory: 'treat' },
     { size: 'S', subCategory: 'tshirt' },
     { size: 'M', subCategory: 'tshirt' },
     { size: 'L', subCategory: 'tshirt' },
@@ -36,7 +36,7 @@ let initialState = {
     { size: 'XXL', subCategory: 'tshirt' },
   ],
   price: [
-    { size: '8 oz', subCategory: 'beverage', price: 1.5 },
+    { size: '8 oz', subCategory: 'beverage', price: 1.50 },
     { size: '16 oz', subCategory: 'beverage', price: 2.25 },
     { size: '24 oz', subCategory: 'beverage', price: 3.00 },
     { size: 'Reg', subCategory: 'treat', price: 1.99 },
@@ -54,7 +54,7 @@ export const uppercaseName = () => {
   };
 };
 
-// step 3: define our reducer
+// step 3: define our reducer for managing initial state
 
 export default (state = initialState, action) => {
   let { type, payload } = action;
@@ -62,11 +62,11 @@ export default (state = initialState, action) => {
   switch (type) {
     default:
       return state;
-    case 'APP/UPPERCASE_NAME':
-      return {
-        ...state,
-        name: state.name.toUpperCase(),
-      };
+    // case 'APP/UPPERCASE_NAME':
+    //   return {
+    //     ...state,
+    //     name: state.name.toUpperCase(),
+    //   };
     case 'CATEGORY':
       return { ...state, payload };
   }
