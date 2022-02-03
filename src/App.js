@@ -3,7 +3,7 @@ import React from 'react';
 
 import Header from './components/header/header.js';
 import Categories from './components/storefront/categories.js';
-import Items from './components/items/details.js';
+import Items from './components/storefront/items.js';
 import Footer from './components/footer/footer.js';
 
 function App() {

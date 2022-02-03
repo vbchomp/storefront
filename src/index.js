@@ -1,4 +1,3 @@
-import { StrictMode } from 'react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -8,11 +7,11 @@ import store from './store/store.js';
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
-<StrictMode>
+<React.StrictMode>
 {/* wrapper */}
   <Provider store={store}>
     <App />
   </Provider>
-</StrictMode>, 
+</React.StrictMode>, 
 rootElement
 );
