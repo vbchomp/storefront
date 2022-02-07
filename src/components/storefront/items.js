@@ -6,12 +6,19 @@ import React from 'react';
 // import CardContent from '@material-ui/core/CardContent';
 // import CardActions from '@material-ui/core/CardActions';
 import { connect } from 'react-redux';
+import { changeItem } from '../../store/itemsReducer';
 
 const Items = (props) => {
+  const itemsToShow = props.item.filter(item => {
+    return item.category === props.currentCategory;
+  })
 
   return (
     <>
-      <section>{props.name}</section>
+      <section>{itemsToShow.map(item => {
+        return <h3>{item.name}</h3>
+      })}</section>
+      {/* need onClick for the changeItem that will be like the changeCategory */}
       {/* <Container>
         <Grid>
           <Card>
@@ -31,8 +38,19 @@ const Items = (props) => {
 // passing component into connect function and giving callback to map global state to component props
 const mapStateToProps = (state) => {
   return {
-    item: state.items.name,
+    item: state.itemsReducer.item,
+    currentCategory: state.itemsReducer.currentCategory
   }
 }
 
-export default connect(mapStateToProps)(Items);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeItem: (item) => {
+      dispatch(changeItem(item))
+    }
+  }
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Items);

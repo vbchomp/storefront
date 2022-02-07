@@ -14,7 +14,7 @@ let initialState = {
     { name: "Fat Ashe's Light Lemonade", category: 'Lemonades' },
     { name: "Lucy Lu & Honey Lemons", category: 'Lemonades' },
     { name: "Olde Boring Store Bought Stuff", category: 'Lemonades' },
-    { name: "Albert Einstein aka Arnold Palmer", category: 'Lemonades' },
+    { name: "Albert Einstein aka Arnold Palmer", category: 'Teas' },
     { name: "Mogee's Sun Kissed", category: 'Teas' },
     { name: "Opa's Too Sweet", category: 'Teas' },
     { name: "Nunu's Fire Cider", category: 'Other Beverages' },
@@ -43,31 +43,46 @@ let initialState = {
     { size: 'Large', subCategory: 'treat', price: 2.99 },
     { size: 'S', subCategory: 'tshirt', price: 19.99 },
   ],
+  currentCategory: 'Lemonades',
+  currentItem: ''
+ 
 };
 
 // step 2 define actions
 
-export const uppercaseName = () => {
+export const changeCategory = (category) => {
   return {
-    type: 'APP/UPPERCASE_NAME',
-    // can also have payload:, need to have as argument, too
+    type: 'CHANGE_CATEGORY',
+    payload: category
+  };
+};
+
+export const changeItem = (item) => {
+  return {
+    type: 'CHANGE_ITEM',
+    payload: item
   };
 };
 
 // step 3: define our reducer for managing initial state
 
-export default (state = initialState, action) => {
+const CategoryReducer = (state = initialState, action) => {
   let { type, payload } = action;
 
   switch (type) {
+    case 'CHANGE_CATEGORY':
+      return {
+        ...state,
+        currentCategory: payload,
+      };
+    case 'CHANGE_ITEM':
+      return { 
+        ...state, 
+        currentItem: payload, 
+      };
     default:
       return state;
-    // case 'APP/UPPERCASE_NAME':
-    //   return {
-    //     ...state,
-    //     name: state.name.toUpperCase(),
-    //   };
-    case 'CATEGORY':
-      return { ...state, payload };
   }
 };
+
+export default CategoryReducer;
