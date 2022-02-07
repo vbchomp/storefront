@@ -1,12 +1,19 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const CurrentCategory = () => {
+const CurrentCategory = (props) => {
 
   return (
     <div>
-
+      {props.currentCategory}
     </div>
   );
 }
 
-export default CurrentCategory();
+const mapStateToProps = (state) => {
+  return {
+    currentCategory: state.itemsReducer.currentCategory,
+  }
+}
+
+export default connect(mapStateToProps)(CurrentCategory);
