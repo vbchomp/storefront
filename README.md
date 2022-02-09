@@ -151,6 +151,8 @@ Heather Bisgaard, Software Engineer
 
 ## Collaborators
 
+Kris Esvelt, Software Developer
+
 ## Setup
 
 ## Scripts
